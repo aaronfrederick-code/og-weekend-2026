@@ -27,6 +27,20 @@
             opacity: 0.7;
             transform: scale(0.98);
         }
+        .course-link {
+            color: #1d4ed8; /* blue-700 */
+            text-decoration: none;
+            transition: color 0.15s ease-in-out, text-decoration 0.15s ease-in-out;
+        }
+        .course-link:hover {
+            color: #1e40af; /* blue-800 */
+            text-decoration: underline;
+        }
+        .flight-link {
+            color: #1d4ed8;
+            font-weight: bold;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -34,25 +48,32 @@
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
         <!-- Header -->
         <header class="text-center mb-10">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-golf-green tracking-tight">Alabama Golf Blitz: 4 Rounds in 2 Days</h1>
-            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">An interactive planner to help you and your buddies choose the perfect 72-hole weekend on the Robert Trent Jones Golf Trail. Click "Select Plan" to highlight your favorite option.</p>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-golf-green tracking-tight">2026 OG Weekend Golf Extravaganza</h1>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Fight it BC!</p>
         </header>
-
+        
         <!-- Options Grid -->
         <main id="options-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
             <!-- Option 1 Card -->
             <section class="card-container bg-white rounded-xl shadow-lg overflow-hidden border-t-8 border-yellow-500 flex flex-col">
                 <div class="p-6 flex-grow">
-                    <h2 class="text-3xl font-bold mb-2 text-yellow-600">Option 1: Birmingham Resort Stay</h2>
-                    <p class="text-md text-gray-500 mb-6">The most comfortable and luxurious choice, with minimal in-day travel.</p>
+                    <h2 class="text-3xl font-bold mb-2 text-center text-golf-green">Option 1: Birmingham Resort Stay</h2>
+                    <p class="text-md text-gray-500 mb-6 text-center">The most comfortable and luxurious choice, with minimal in-day travel.</p>
                     
                     <div class="space-y-4 mb-6 text-lg">
-                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">💰</span><span><strong>Est. Cost:</strong> <span class="font-extrabold text-red-600">~ $850 PP</span></span></div>
-                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">🚗</span><span><strong>In-Day Travel:</strong> <span class="font-bold text-green-600">5 Minutes</span></span></div>
-                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">⭐</span><span><strong>Quality:</strong> <span class="font-bold">High Tier</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">💰</span><span><strong class="font-bold">Est. Total Cost:</strong> <span class="font-extrabold text-red-600">~ $1,200 PP</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">⭐</span><span><strong class="font-bold">Quality:</strong> <span class="font-bold">High Tier</span></span></div>
                     </div>
 
+                    <!-- Granular Cost Breakdown -->
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Cost & Flight Details</h3>
+                    <ul class="text-sm space-y-1 list-disc list-outside pl-5 text-gray-600 mb-4">
+                        <li><strong class="font-bold">Est. Flight Cost:</strong> $350 PP (<a href="https://www.google.com/travel/flights/search?tfs=CBwQAhojEgoyMDI2LTAyLTA1agwIAhIIL20vMGYycnFyBwgBEgNCSE0aIxIKMjAyNi0wMi0wOGoHCAESA0JITXIMCAISCC9tLzBmMnJxQAFIAXABggELCP___________wGYAQE&hl=en&gl=US&curr=USD" target="_blank" class="flight-link">DFW ↔ BHM Direct (2/5 - 2/8)</a>)</li>
+                        <li><strong class="font-bold">Est. Lodging Cost:</strong> $450 PP (3 Nights Ross Bridge Resort)</li>
+                        <li><strong class="font-bold">Est. Golf Cost:</strong> $400 PP (4.5 Rounds Unlimited Passes)</li>
+                    </ul>
+                    
                     <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Itinerary Breakdown</h3>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left">
@@ -61,12 +82,21 @@
                             </thead>
                             <tbody>
                                 <tr class="border-b"><td class="px-4 py-2 font-semibold">Thursday</td><td class="px-4 py-2">Fly DFW ✈ BHM (Direct)</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
-                                <tr class="border-b bg-gray-50"><td class="px-4 py-2 font-semibold">Friday</td><td class="px-4 py-2">36 Holes: Ross Bridge & Oxmoor Ridge</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
-                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Saturday</td><td class="px-4 py-2">36 Holes: Oxmoor Valley & Ross Bridge</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
+                                <tr class="border-b bg-gray-50"><td class="px-4 py-2 font-semibold">Friday</td><td class="px-4 py-2">36 Holes: <a class="course-link" href="https://www.rtjgolf.com/rossbridge/champions.html#1" target="_blank">Ross Bridge</a> & <a class="course-link" href="https://www.rtjgolf.com/oxmoorvalley/ridge.html#1" target="_blank">Oxmoor Ridge</a></td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
+                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Saturday</td><td class="px-4 py-2">36 Holes: <a class="course-link" href="https://www.rtjgolf.com/oxmoorvalley/valley.html#1" target="_blank">Oxmoor Valley</a> & <a class="course-link" href="https://www.rtjgolf.com/rossbridge/champions.html#1" target="_blank">Ross Bridge</a></td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
                                 <tr class="bg-gray-50"><td class="px-4 py-2 font-semibold">Sunday</td><td class="px-4 py-2">Optional Par 3, Fly BHM ✈ DFW</td><td class="px-4 py-2">N/A</td></tr>
                             </tbody>
                         </table>
                     </div>
+                    
+                    <!-- Course Highlights Option 1 -->
+                    <h3 class="text-xl font-bold text-gray-800 mt-4 mb-2 border-b pb-1">Course Highlights</h3>
+                    <ul class="text-sm space-y-1 list-disc list-outside pl-5 text-gray-600">
+                        <li><strong class="font-bold">Ross Bridge:</strong> One of the world's longest courses, known for waterfalls, elevated tees, and a stunning parkland style.</li>
+                        <li><strong class="font-bold">Oxmoor Ridge:</strong> Features dramatic 150-foot elevation changes and spectacular views carved into the foothills of the Appalachians.</li>
+                        <li><strong class="font-bold">Oxmoor Valley:</strong> A challenging, strategic course recently renovated with new TifEagle greens and classic Southern charm.</li>
+                        <li><strong class="font-bold">Backyard (Par 3):</strong> A fun, quick-play 18-hole walking course perfect for settling bets after a long day.</li>
+                    </ul>
                 </div>
                 <div class="p-6 bg-gray-50">
                     <button class="select-btn w-full golf-green text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-800 transition-colors duration-300">Select Plan 1</button>
@@ -76,14 +106,22 @@
             <!-- Option 2 Card -->
             <section class="card-container bg-white rounded-xl shadow-lg overflow-hidden border-t-8 border-blue-500 flex flex-col">
                 <div class="p-6 flex-grow">
-                    <h2 class="text-3xl font-bold mb-2 text-blue-600">Option 2: Montgomery Deep Dive</h2>
-                    <p class="text-md text-gray-500 mb-6">The most budget-friendly and hyper-efficient option on the entire trail.</p>
+                    <h2 class="text-3xl font-bold mb-2 text-center text-golf-green">Option 2: Montgomery Deep Dive</h2>
+                    <p class="text-md text-gray-500 mb-6 text-center">The most budget-friendly and hyper-efficient option on the entire trail.</p>
                     
                     <div class="space-y-4 mb-6 text-lg">
-                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">💰</span><span><strong>Est. Cost:</strong> <span class="font-extrabold text-green-600">~ $660 PP</span></span></div>
-                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">🚗</span><span><strong>In-Day Travel:</strong> <span class="font-bold text-green-600">0 Minutes</span></span></div>
-                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">⭐</span><span><strong>Quality:</strong> <span class="font-bold">Very High Tier</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">💰</span><span><strong class="font-bold">Est. Total Cost:</strong> <span class="font-extrabold text-green-600">~ $1,010 PP</span></span></div>
+                        
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">⭐</span><span><strong class="font-bold">Quality:</strong> <span class="font-bold">Very High Tier</span></span></div>
                     </div>
+
+                    <!-- Granular Cost Breakdown -->
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Cost & Flight Details</h3>
+                    <ul class="text-sm space-y-1 list-disc list-outside pl-5 text-gray-600 mb-4">
+                        <li><strong class="font-bold">Est. Flight Cost:</strong> $350 PP (<a href="https://www.google.com/travel/flights/search?tfs=CBwQAhojEgoyMDI2LTAyLTA1agwIAhIIL20vMGYycnFyBwgBEgNNR00aIxIKMjAyNi0wMi0wOGoHCAESA01HTXIMCAISCC9tLzBmMnJxQAFIAXABggELCP___________wGYAQE&hl=en&gl=US&curr=USD" target="_blank" class="flight-link">DFW ↔ MGM Direct (2/5 - 2/8)</a>)</li>
+                        <li><strong class="font-bold">Est. Lodging Cost:</strong> $300 PP (3 Nights Prattville Hotel)</li>
+                        <li><strong class="font-bold">Est. Golf Cost:</strong> $360 PP (4 Championship Rounds Unlimited Passes)</li>
+                    </ul>
 
                     <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Itinerary Breakdown</h3>
                     <div class="overflow-x-auto">
@@ -93,12 +131,20 @@
                             </thead>
                             <tbody>
                                 <tr class="border-b"><td class="px-4 py-2 font-semibold">Thursday</td><td class="px-4 py-2">Fly DFW ✈ MGM (Direct)</td><td class="px-4 py-2">Prattville Hotel</td></tr>
-                                <tr class="border-b bg-gray-50"><td class="px-4 py-2 font-semibold">Friday</td><td class="px-4 py-2">36 Holes: Judge & Legislator</td><td class="px-4 py-2">Prattville Hotel</td></tr>
-                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Saturday</td><td class="px-4 py-2">36 Holes: Senator & Judge (Replay)</td><td class="px-4 py-2">Prattville Hotel</td></tr>
+                                <tr class="border-b bg-gray-50"><td class="px-4 py-2 font-semibold">Friday</td><td class="px-4 py-2">36 Holes: <a class="course-link" href="https://www.rtjgolf.com/capitolhill/judge.html#1" target="_blank">Judge</a> & <a class="course-link" href="https://www.rtjgolf.com/capitolhill/legislator.html#1" target="_blank">Legislator</a></td><td class="px-4 py-2">Prattville Hotel</td></tr>
+                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Saturday</td><td class="px-4 py-2">36 Holes: <a class="course-link" href="https://www.rtjgolf.com/capitolhill/senator.html#1" target="_blank">Senator</a> & <a class="course-link" href="https://www.rtjgolf.com/capitolhill/judge.html#1" target="_blank">Judge</a> (Replay)</td><td class="px-4 py-2">Prattville Hotel</td></tr>
                                 <tr class="bg-gray-50"><td class="px-4 py-2 font-semibold">Sunday</td><td class="px-4 py-2">Fly MGM ✈ DFW</td><td class="px-4 py-2">N/A</td></tr>
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- Course Highlights Option 2 -->
+                    <h3 class="text-xl font-bold text-gray-800 mt-4 mb-2 border-b pb-1">Course Highlights</h3>
+                    <ul class="text-sm space-y-1 list-disc list-outside pl-5 text-gray-600">
+                        <li><strong class="font-bold">Judge:</strong> The Trail's signature course, featuring a dramatic 200-foot drop from the first tee overlooking the Alabama River.</li>
+                        <li><strong class="font-bold">Legislator:</strong> A traditional course known for the beautiful "Sky Bridge" section, playing along a bluff and through wetlands.</li>
+                        <li><strong class="font-bold">Senator:</strong> A challenging, tree-less links-style course unique to the Trail, featuring over $160$ pot bunkers and huge mounds.</li>
+                    </ul>
                 </div>
                 <div class="p-6 bg-gray-50">
                     <button class="select-btn w-full golf-green text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-800 transition-colors duration-300">Select Plan 2</button>
@@ -108,14 +154,22 @@
             <!-- Option 3 Card -->
             <section class="card-container bg-white rounded-xl shadow-lg overflow-hidden border-t-8 border-red-600 flex flex-col">
                 <div class="p-6 flex-grow">
-                    <h2 class="text-3xl font-bold mb-2 text-red-600">Option 3: Best of Both Worlds</h2>
-                    <p class="text-md text-gray-500 mb-6">Hits the absolute highest-rated courses in a single, aggressive blitz.</p>
+                    <h2 class="text-3xl font-bold mb-2 text-center text-golf-green">Option 3: Best of Both Worlds</h2>
+                    <p class="text-md text-gray-500 mb-6 text-center">Hits the absolute highest-rated courses in a single, aggressive blitz.</p>
 
                     <div class="space-y-4 mb-6 text-lg">
-                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">💰</span><span><strong>Est. Cost:</strong> <span class="font-extrabold text-yellow-600">~ $780 PP</span></span></div>
-                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">🚗</span><span><strong>In-Day Travel:</strong> <span class="font-bold text-green-600">0-5 Minutes</span></span></div>
-                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">⭐</span><span><strong>Quality:</strong> <span class="font-bold text-red-600">Highest Tier</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">💰</span><span><strong class="font-bold">Est. Total Cost:</strong> <span class="font-extrabold text-yellow-600">~ $1,130 PP</span></span></div>
+                        
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">⭐</span><span><strong class="font-bold">Quality:</strong> <span class="font-bold text-red-600">Highest Tier</span></span></div>
                     </div>
+
+                    <!-- Granular Cost Breakdown -->
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Cost & Flight Details</h3>
+                    <ul class="text-sm space-y-1 list-disc list-outside pl-5 text-gray-600 mb-4">
+                        <li><strong class="font-bold">Est. Flight Cost:</strong> $350 PP (Use BHM in, MGM out - <a href="https://www.google.com/travel/flights/search?tfs=CBwQAhojEgoyMDI2LTAyLTA1agwIAhIIL20vMGYycnFyBwgBEgNCSE0aIxIKMjAyNi0wMi0wOGoHCAESA01HTXIMCAISCC9tLzBmMnJxQAFIAXABggELCP___________wGYAQM&hl=en&gl=US&curr=USD" target="_blank" class="flight-link">DFW ↔ BHM (2/5 - 2/8)</a>)</li>
+                        <li><strong class="font-bold">Est. Lodging Cost:</strong> $400 PP (2 Nights Ross Bridge, 1 Night Prattville)</li>
+                        <li><strong class="font-bold">Est. Golf Cost:</strong> $380 PP (4 Championship Rounds Unlimited Passes)</li>
+                    </ul>
 
                     <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Itinerary Breakdown</h3>
                     <div class="overflow-x-auto">
@@ -125,14 +179,14 @@
                             </thead>
                             <tbody>
                                 <tr class="border-b"><td class="px-4 py-2 font-semibold">Thursday</td><td class="px-4 py-2">Fly DFW ✈ BHM (Direct)</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
-                                <tr class="border-b bg-gray-50"><td class="px-4 py-2 font-semibold">Friday</td><td class="px-4 py-2">36 Holes: Ross Bridge & Oxmoor Ridge</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
-                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Saturday</td><td class="px-4 py-2 text-red-700">Early Drive + 36 Holes: Judge & Legislator</td><td class="px-4 py-2">Prattville Hotel</td></tr>
+                                <tr class="border-b bg-gray-50"><td class="px-4 py-2 font-semibold">Friday</td><td class="px-4 py-2">36 Holes: <a class="course-link" href="https://www.rtjgolf.com/rossbridge/champions.html#1" target="_blank">Ross Bridge</a> & <a class="course-link" href="https://www.rtjgolf.com/oxmoorvalley/ridge.html#1" target="_blank">Oxmoor Ridge</a></td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
+                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Saturday</td><td class="px-4 py-2 text-red-700">Early Drive + 36 Holes: <a class="course-link" href="https://www.rtjgolf.com/capitolhill/judge.html#1" target="_blank">Judge</a> & <a class="course-link" href="https://www.rtjgolf.com/capitolhill/legislator.html#1" target="_blank">Legislator</a></td><td class="px-4 py-2">Prattville Hotel</td></tr>
                                 <tr class="bg-gray-50"><td class="px-4 py-2 font-semibold">Sunday</td><td class="px-4 py-2">Fly MGM ✈ DFW</td><td class="px-4 py-2">N/A</td></tr>
                             </tbody>
                         </table>
                     </div>
                      <div class="mt-4 p-3 bg-red-100 rounded-lg text-red-800 text-sm">
-                        <p><span class="font-bold">Aggressive Travel Warning:</span> Saturday requires a 1.5-hour drive. You must leave Birmingham by 6:00 AM to make an early tee time for a full 36-hole day.</p>
+                        <p><strong class="font-bold">Aggressive Travel Warning:</strong> Saturday requires a 1.5-hour drive. You must leave Birmingham by 6:00 AM to make an early tee time for a full 36-hole day.</p>
                     </div>
                 </div>
                 <div class="p-6 bg-gray-50">
@@ -178,4 +232,3 @@
     </script>
 </body>
 </html>
-
