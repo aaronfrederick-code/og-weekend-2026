@@ -1,0 +1,181 @@
+<!-- Chosen Palette: Golf Green (#047857), Option 1 Amber (#d97706), Option 2 Blue (#2563eb), Option 3 Red (#dc2626), and Warm Neutrals for background and text. -->
+<!-- Application Structure Plan: The SPA uses a responsive three-column grid layout, which is the most effective structure for directly comparing three distinct, parallel options. On smaller screens, the cards stack vertically for readability. The primary interaction allows a user to click a "Select Plan" button, which visually highlights their preferred choice, providing clear feedback and a sense of decision-making. This structure was chosen to turn a static report into a simple, task-oriented tool: "Choose Your Itinerary." -->
+<!-- Visualization & Content Choices: Report Info: Three distinct golf itineraries with data points on cost, travel, and quality. -> Goal: Compare options to make a decision. -> Viz/Presentation Method: The core data is presented in styled "cards" using structured text, icons (Unicode emojis for simplicity and universal rendering), and tables. Icons (💰, 🚗, ⭐) provide a quick, scannable summary of each option's strengths. Tables are used for the detailed daily itineraries as they are the clearest way to present chronological information. -> Interaction: A "Select Plan" button on each card uses JavaScript to toggle highlight states, dynamically changing card borders and opacity to focus the user's attention on their choice. This is more engaging than a static list. -> Justification: This approach avoids unnecessary complexity. Charts are not needed as the primary data points are comparative metrics, not complex datasets. The card layout is intuitive and visually appealing. -> Library/Method: Vanilla JavaScript for interaction, Tailwind CSS for styling. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTJ Golf Trail: DFW Weekend Blitz Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .golf-green { background-color: #047857; }
+        .text-golf-green { color: #047857; }
+        .card-container { transition: all 0.3s ease-in-out; }
+        .card-selected {
+            transform: scale(1.03);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #047857 !important;
+        }
+        .card-deselected {
+            opacity: 0.7;
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-golf-green tracking-tight">Alabama Golf Blitz: 4 Rounds in 2 Days</h1>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">An interactive planner to help you and your buddies choose the perfect 72-hole weekend on the Robert Trent Jones Golf Trail. Click "Select Plan" to highlight your favorite option.</p>
+        </header>
+
+        <!-- Options Grid -->
+        <main id="options-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Option 1 Card -->
+            <section class="card-container bg-white rounded-xl shadow-lg overflow-hidden border-t-8 border-yellow-500 flex flex-col">
+                <div class="p-6 flex-grow">
+                    <h2 class="text-3xl font-bold mb-2 text-yellow-600">Option 1: Birmingham Resort Stay</h2>
+                    <p class="text-md text-gray-500 mb-6">The most comfortable and luxurious choice, with minimal in-day travel.</p>
+                    
+                    <div class="space-y-4 mb-6 text-lg">
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">💰</span><span><strong>Est. Cost:</strong> <span class="font-extrabold text-red-600">~ $850 PP</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">🚗</span><span><strong>In-Day Travel:</strong> <span class="font-bold text-green-600">5 Minutes</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">⭐</span><span><strong>Quality:</strong> <span class="font-bold">High Tier</span></span></div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Itinerary Breakdown</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                <tr><th class="px-4 py-2">Day</th><th class="px-4 py-2">Activity</th><th class="px-4 py-2">Stay</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Thursday</td><td class="px-4 py-2">Fly DFW ✈ BHM (Direct)</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
+                                <tr class="border-b bg-gray-50"><td class="px-4 py-2 font-semibold">Friday</td><td class="px-4 py-2">36 Holes: Ross Bridge & Oxmoor Ridge</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
+                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Saturday</td><td class="px-4 py-2">36 Holes: Oxmoor Valley & Ross Bridge</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
+                                <tr class="bg-gray-50"><td class="px-4 py-2 font-semibold">Sunday</td><td class="px-4 py-2">Optional Par 3, Fly BHM ✈ DFW</td><td class="px-4 py-2">N/A</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <button class="select-btn w-full golf-green text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-800 transition-colors duration-300">Select Plan 1</button>
+                </div>
+            </section>
+
+            <!-- Option 2 Card -->
+            <section class="card-container bg-white rounded-xl shadow-lg overflow-hidden border-t-8 border-blue-500 flex flex-col">
+                <div class="p-6 flex-grow">
+                    <h2 class="text-3xl font-bold mb-2 text-blue-600">Option 2: Montgomery Deep Dive</h2>
+                    <p class="text-md text-gray-500 mb-6">The most budget-friendly and hyper-efficient option on the entire trail.</p>
+                    
+                    <div class="space-y-4 mb-6 text-lg">
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">💰</span><span><strong>Est. Cost:</strong> <span class="font-extrabold text-green-600">~ $660 PP</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">🚗</span><span><strong>In-Day Travel:</strong> <span class="font-bold text-green-600">0 Minutes</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">⭐</span><span><strong>Quality:</strong> <span class="font-bold">Very High Tier</span></span></div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Itinerary Breakdown</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                <tr><th class="px-4 py-2">Day</th><th class="px-4 py-2">Activity</th><th class="px-4 py-2">Stay</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Thursday</td><td class="px-4 py-2">Fly DFW ✈ MGM (Direct)</td><td class="px-4 py-2">Prattville Hotel</td></tr>
+                                <tr class="border-b bg-gray-50"><td class="px-4 py-2 font-semibold">Friday</td><td class="px-4 py-2">36 Holes: Judge & Legislator</td><td class="px-4 py-2">Prattville Hotel</td></tr>
+                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Saturday</td><td class="px-4 py-2">36 Holes: Senator & Judge (Replay)</td><td class="px-4 py-2">Prattville Hotel</td></tr>
+                                <tr class="bg-gray-50"><td class="px-4 py-2 font-semibold">Sunday</td><td class="px-4 py-2">Fly MGM ✈ DFW</td><td class="px-4 py-2">N/A</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <button class="select-btn w-full golf-green text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-800 transition-colors duration-300">Select Plan 2</button>
+                </div>
+            </section>
+
+            <!-- Option 3 Card -->
+            <section class="card-container bg-white rounded-xl shadow-lg overflow-hidden border-t-8 border-red-600 flex flex-col">
+                <div class="p-6 flex-grow">
+                    <h2 class="text-3xl font-bold mb-2 text-red-600">Option 3: Best of Both Worlds</h2>
+                    <p class="text-md text-gray-500 mb-6">Hits the absolute highest-rated courses in a single, aggressive blitz.</p>
+
+                    <div class="space-y-4 mb-6 text-lg">
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">💰</span><span><strong>Est. Cost:</strong> <span class="font-extrabold text-yellow-600">~ $780 PP</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">🚗</span><span><strong>In-Day Travel:</strong> <span class="font-bold text-green-600">0-5 Minutes</span></span></div>
+                        <div class="flex items-center"><span class="text-2xl mr-3 w-8 text-center">⭐</span><span><strong>Quality:</strong> <span class="font-bold text-red-600">Highest Tier</span></span></div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Itinerary Breakdown</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                <tr><th class="px-4 py-2">Day</th><th class="px-4 py-2">Activity</th><th class="px-4 py-2">Stay</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Thursday</td><td class="px-4 py-2">Fly DFW ✈ BHM (Direct)</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
+                                <tr class="border-b bg-gray-50"><td class="px-4 py-2 font-semibold">Friday</td><td class="px-4 py-2">36 Holes: Ross Bridge & Oxmoor Ridge</td><td class="px-4 py-2">Ross Bridge Resort</td></tr>
+                                <tr class="border-b"><td class="px-4 py-2 font-semibold">Saturday</td><td class="px-4 py-2 text-red-700">Early Drive + 36 Holes: Judge & Legislator</td><td class="px-4 py-2">Prattville Hotel</td></tr>
+                                <tr class="bg-gray-50"><td class="px-4 py-2 font-semibold">Sunday</td><td class="px-4 py-2">Fly MGM ✈ DFW</td><td class="px-4 py-2">N/A</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                     <div class="mt-4 p-3 bg-red-100 rounded-lg text-red-800 text-sm">
+                        <p><span class="font-bold">Aggressive Travel Warning:</span> Saturday requires a 1.5-hour drive. You must leave Birmingham by 6:00 AM to make an early tee time for a full 36-hole day.</p>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <button class="select-btn w-full golf-green text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-800 transition-colors duration-300">Select Plan 3</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectButtons = document.querySelectorAll('.select-btn');
+            const cards = document.querySelectorAll('.card-container');
+            const grid = document.getElementById('options-grid');
+
+            selectButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const selectedButton = event.currentTarget;
+                    const selectedCard = selectedButton.closest('.card-container');
+
+                    // Check if the selected card is already selected
+                    const isAlreadySelected = selectedCard.classList.contains('card-selected');
+
+                    // First, remove selection from all cards
+                    cards.forEach(card => {
+                        card.classList.remove('card-selected');
+                        card.classList.add('card-deselected');
+                    });
+
+                    // If the clicked card was not already selected, select it
+                    if (!isAlreadySelected) {
+                        selectedCard.classList.add('card-selected');
+                        selectedCard.classList.remove('card-deselected');
+                    } else {
+                        // If it was already selected, we just remove the deselected state from all
+                        // to return to the default view.
+                        cards.forEach(card => card.classList.remove('card-deselected'));
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
